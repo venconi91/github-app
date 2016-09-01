@@ -8,6 +8,7 @@ import HomePage from './pages/Home';
 import DashBoard from './pages/DashBoard';
 // components
 import App from './components/App';
+import NavigationWrapper from './components/NavigationWrapper';
 // stores
 import userStore from './stores/UserStore';
 import repositoriesStore from './stores/repositoriesStore';
@@ -20,10 +21,12 @@ ReactDOM.render(
   <Provider { ...stores }>
     <Router history={browserHistory}>
       <Route path="/test" component={HomePage} />
-      <Route path="/" component={App}>
-        <IndexRoute component={HomePage} />
-        <Route path="/" component={HomePage} />
-        <Route path="/users/:username" component={DashBoard} />
+      <Route component={App}>
+        <Route component={NavigationWrapper}>
+          <IndexRoute component={HomePage} />
+          <Route path="/" component={HomePage} />
+          <Route path="/users/:username" component={DashBoard} />
+        </Route>
       </Route>
     </Router>
   </Provider>,
