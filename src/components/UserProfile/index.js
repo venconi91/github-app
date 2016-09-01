@@ -20,7 +20,7 @@ import { observer } from 'mobx-react';
 // TODO: refactor to render data from props 
 import userStore from './../../stores/userStore';
 
-export default @observer class UserProfile extends React.Component {
+export default @observer class UserProfile extends Component {
 	render() {
         
 		return (

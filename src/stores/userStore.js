@@ -8,6 +8,14 @@ class UserStore {
     this.user = user;
   }
 
+  @computed get username() {
+    if(this.user) {
+      return this.user.login;
+    }
+    
+    return null;
+  }
+
   @action setUser = (user) => {
     this.user = user;
   }
