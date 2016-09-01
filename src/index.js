@@ -6,6 +6,7 @@ import { Provider } from 'mobx-react';
 // pages
 import HomePage from './pages/Home';
 import DashBoard from './pages/DashBoard';
+import Followers from './pages/Followers';
 // components
 import App from './components/App';
 import NavigationWrapper from './components/NavigationWrapper';
@@ -26,6 +27,7 @@ ReactDOM.render(
           <IndexRoute component={HomePage} />
           <Route path="/" component={HomePage} />
           <Route path="/users/:username" component={DashBoard} />
+          <Route path="/users/:username/followers" component={Followers} />
         </Route>
       </Route>
     </Router>
