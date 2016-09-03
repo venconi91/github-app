@@ -15,7 +15,7 @@ class Wrapper extends Component {
             <NavItem>
               <Link to="/">Home</Link>
               <Link to={`/users/${userStore.username}/followers`}>Followers</Link>
-              <Link to="/components/">Followings</Link>
+              <Link to={`/users/${userStore.username}/followings`}>Followings</Link>
             </NavItem>
           </Nav>
         </Navbar> : null}

@@ -3,7 +3,7 @@ import React, { Component} from 'react';
 class Home extends Component {
   constructor(props) {
       super(props);
-      this.state = {value: ''};
+      this.state = {value: 'Venconi91'};
       this.onChange = this.onChange.bind(this);
       this.onSubmit = this.onSubmit.bind(this)
   }
