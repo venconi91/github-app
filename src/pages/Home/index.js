@@ -1,32 +1,22 @@
 import React, { Component } from 'react';
+import HomeContainer from './../../containers/Home';
+import userStore from './../../stores/userStore';
 
-class Home extends Component {
-  constructor(props) {
-      super(props);
-      this.state = {value: 'Venconi91'};
-      this.onChange = this.onChange.bind(this);
-      this.onSubmit = this.onSubmit.bind(this)
+import { fetchUser } from './../../api/user';
+
+// observer & inject
+class DashBoard extends Component {
+  componentWillMount() {
+    userStore.clear();
+    let username = this.props.params.username;
+    fetchUser(username);
   }
-  onChange(e) {
-      this.setState({value: e.target.value})
-  }
-  onSubmit(e) {
-      e.preventDefault();
-      this.context.router.push(`users/${this.state.value}`);
-  }
+
   render() {
     return <div>
-        <p>Search github user by username</p>
-        <form onSubmit={this.onSubmit}>
-            <input value={this.state.value} onChange={this.onChange} />
-            <button type='submit'>Find User</button>
-        </form>
+        <HomeContainer />
     </div>;
   }
 }
 
-Home.contextTypes = {
-    router: React.PropTypes.object
-};
-
-export default Home;
+export default DashBoard;

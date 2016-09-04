@@ -14,7 +14,10 @@ class Wrapper extends Component {
           <NavbarBrand href="/">{userStore.username}</NavbarBrand>
           <Nav className="pull-xs-left" navbar>
             <NavItem>
-              <Link to="/">Home</Link>            
+              <Link to="/">Search</Link>            
+            </NavItem>
+            <NavItem>
+              <Link to={`/users/${userStore.username}`}>Home</Link>            
             </NavItem>
             <NavItem>
               <Link to={`/users/${userStore.username}/followers`}>Followers</Link>

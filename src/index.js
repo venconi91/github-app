@@ -4,8 +4,8 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { useStrict } from 'mobx';
 import { Provider } from 'mobx-react';
 // pages
-import HomePage from './pages/Home';
-import DashBoard from './pages/DashBoard';
+import Search from './pages/Search';
+import Home from './pages/Home';
 import Followers from './pages/Followers';
 import Followings from './pages/Followings';
 import Repos from './pages/Repos';
@@ -23,12 +23,11 @@ const stores = { userStore, repositoriesStore };
 ReactDOM.render(
   <Provider { ...stores }>
     <Router history={browserHistory}>
-      <Route path="/test" component={HomePage} />
       <Route component={App}>
         <Route component={NavigationWrapper}>
-          <IndexRoute component={HomePage} />
-          <Route path="/" component={HomePage} />
-          <Route path="/users/:username" component={DashBoard} />
+          <IndexRoute component={Search} />
+          <Route path="/" component={Search} />
+          <Route path="/users/:username" component={Home} />
           <Route path="/users/:username/followers" component={Followers} />
           <Route path="/users/:username/followings" component={Followings} />
           <Route path="/users/:username/repos" component={Repos} />
