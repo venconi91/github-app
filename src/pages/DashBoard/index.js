@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import {fetchUser} from './../../api/user';
 import DashBoardContainer from './../../containers/DashBoard';
+
+import { fetchUser } from './../../api/user';
+
 // observer & inject
 class DashBoard extends Component {
   componentWillMount() {

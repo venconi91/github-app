@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
-import { fetchFollowers } from './../../api/user';
-import followersStore from './../../stores/followersStore';
 
+import followersStore from './../../stores/followersStore';
 import Follows from './../../components/Follows';
+
+import { fetchFollowers } from './../../api/user';
 
 @observer class Followers extends React.Component {
   componentWillMount() {

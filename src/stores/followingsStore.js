@@ -1,4 +1,4 @@
-import { observable, computed, action } from 'mobx';
+import { observable, action } from 'mobx';
 
 class FollowingsStore {
 
@@ -9,7 +9,6 @@ class FollowingsStore {
   }
 
   @action setFollowings = (followings) => {
-    console.log('set followings')
     this.followings = followings;
   }
 }
