@@ -4,30 +4,22 @@ import { Container, Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstra
 import { Link } from 'react-router';
 
 import userStore from './../../stores/userStore';
+import { getNavigation } from './config';
 
 @observer
-class Wrapper extends Component {
+class Navigation extends Component {
   render() {
     let isUserAvailable = Object.keys(userStore.user).length > 0;
+    let navigationItems = getNavigation(userStore.username);
     return <div>
         {isUserAvailable ? <Navbar color="faded" light>
           <NavbarBrand href="/">{userStore.username}</NavbarBrand>
           <Nav className="pull-xs-left" navbar>
-            <NavItem>
-              <Link to="/">Search</Link>            
+            {navigationItems.map((item, i) => {
+              return <NavItem key={i}>
+              <Link to={item.to}>{item.title}</Link>            
             </NavItem>
-            <NavItem>
-              <Link to={`/users/${userStore.username}`}>Home</Link>            
-            </NavItem>
-            <NavItem>
-              <Link to={`/users/${userStore.username}/followers`}>Followers</Link>
-            </NavItem>
-            <NavItem>
-              <Link to={`/users/${userStore.username}/followings`}>Followings</Link>
-            </NavItem>
-            <NavItem>
-              <Link to={`/users/${userStore.username}/repos`}>Repos</Link>
-            </NavItem>
+            })}
           </Nav>
         </Navbar> : null}
         <Container>
@@ -37,4 +29,4 @@ class Wrapper extends Component {
   }
 }
 
-export default Wrapper;
+export default Navigation;
