@@ -2,6 +2,7 @@ import axios from 'axios';
 import userStore from './../stores/userStore';
 import followersStore from './../stores/followersStore';
 import followingsStore from './../stores/followingsStore';
+import reposStore from './../stores/reposStore';
 // TODO: move this in contants folder
 const githubApiUrl = 'https://api.github.com/users/'
 
@@ -31,6 +32,17 @@ export function fetchFollowings(username) {
   axios.get(`${githubApiUrl}${username}/following`)
     .then(function (response) {
       followingsStore.setFollowings(response.data)
+    })
+    .catch(function (error) {
+      // TODO: handle error
+      console.log(error);
+    });
+};
+
+export function fetchRepos(username) {
+  axios.get(`${githubApiUrl}${username}/repos`)
+    .then(function (response) {
+      reposStore.setRepos(response.data)
     })
     .catch(function (error) {
       // TODO: handle error

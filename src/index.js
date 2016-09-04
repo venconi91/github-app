@@ -8,6 +8,7 @@ import HomePage from './pages/Home';
 import DashBoard from './pages/DashBoard';
 import Followers from './pages/Followers';
 import Followings from './pages/Followings';
+import Repos from './pages/Repos';
 // components
 import App from './components/App';
 import NavigationWrapper from './components/NavigationWrapper';
@@ -30,6 +31,7 @@ ReactDOM.render(
           <Route path="/users/:username" component={DashBoard} />
           <Route path="/users/:username/followers" component={Followers} />
           <Route path="/users/:username/followings" component={Followings} />
+          <Route path="/users/:username/repos" component={Repos} />
         </Route>
       </Route>
     </Router>
