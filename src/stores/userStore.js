@@ -19,6 +19,10 @@ class UserStore {
   @action setUser = (user) => {
     this.user = user;
   }
+
+  @action clear = () => {
+    this.user = {};
+  }
 }
 
 const userStore = new UserStore();

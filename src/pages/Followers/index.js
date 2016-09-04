@@ -11,6 +11,11 @@ import { fetchFollowers } from './../../api/user';
     let username = this.props.params.username;
     fetchFollowers(username);
   }
+
+  componentWillUnmount() {
+    followersStore.clear();
+  }
+
   render() {
     return <div>
         <Follows users={followersStore.followers} />

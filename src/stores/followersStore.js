@@ -11,6 +11,10 @@ class FollowersStore {
   @action setFollowers = (followers) => {
     this.followers = followers;
   }
+
+  @action clear = () => {
+    this.followers = [];
+  }
 }
 
 const followersStore = new FollowersStore();

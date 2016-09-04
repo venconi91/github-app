@@ -11,6 +11,11 @@ import { fetchFollowings } from './../../api/user';
     let username = this.props.params.username;
     fetchFollowings(username);
   }
+
+  componentWillUnmount() {
+    followingsStore.clear();
+  }
+
   render() {
     return <div>
         <Follows users={followingsStore.followings} />
