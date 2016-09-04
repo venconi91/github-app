@@ -3,8 +3,8 @@ import userStore from './../stores/userStore';
 import followersStore from './../stores/followersStore';
 import followingsStore from './../stores/followingsStore';
 import reposStore from './../stores/reposStore';
-// TODO: move this in contants folder
-const githubApiUrl = 'https://api.github.com/users/'
+
+import { githubApiUrl } from './../constants';
 
 export function fetchUser(username) {
   axios.get(`${githubApiUrl}${username}`)
