@@ -11,6 +11,10 @@ class ReposStore{
     @action setRepos = (repos = []) => {
         this.repos = repos;
     }
+
+    @action clear = () => {
+        this.repos = [];
+    }
 }
 
 let reposStore = new ReposStore();

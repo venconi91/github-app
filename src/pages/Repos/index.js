@@ -12,6 +12,11 @@ class Repos extends Component {
     let username = this.props.params.username;
     fetchRepos(username);
   }
+
+  componentWillUnmount() {
+    reposStore.clear()
+  }
+  
   render() {
     return <div>
         {reposStore.repos.map((repo) => {
