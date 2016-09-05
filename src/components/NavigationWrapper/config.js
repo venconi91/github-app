@@ -1,7 +1,8 @@
 export function getNavigation(username) { 
     return [{
       to: '/',
-      title: 'Search'
+      title: 'Search',
+      allow: true // if true shows this navigation item when no user is available
     }, {
       to: `/users/${username}`,
       title: 'Home'

@@ -12,16 +12,16 @@ class Navigation extends Component {
     let isUserAvailable = Object.keys(userStore.user).length > 0;
     let navigationItems = getNavigation(userStore.username);
     return <div>
-        {isUserAvailable ? <Navbar color="faded" light>
-          <NavbarBrand href="/">{userStore.username}</NavbarBrand>
+        <Navbar color="faded" light>
+          {isUserAvailable ? <NavbarBrand href="/">{userStore.username}</NavbarBrand> : null}
           <Nav className="pull-xs-left" navbar>
             {navigationItems.map((item, i) => {
-              return <NavItem key={i}>
+              return (isUserAvailable || !isUserAvailable && item.allow) ? <NavItem key={i}>
               <Link to={item.to}>{item.title}</Link>            
-            </NavItem>
+            </NavItem> : null
             })}
           </Nav>
-        </Navbar> : null}
+        </Navbar>
         <Container>
           {this.props.children}
         </Container>
