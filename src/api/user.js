@@ -12,8 +12,7 @@ export function fetchUser(username) {
       userStore.setUser(response.data)
     })
     .catch(function (error) {
-      // TODO: handle error
-      console.log(error);
+      userStore.setError(error.response)
     });
 };
 

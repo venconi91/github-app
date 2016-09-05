@@ -22,11 +22,16 @@ import userStore from './../../stores/userStore';
 
 export default @observer class UserProfile extends Component {
 	render() {
-        
+        let error = userStore.errorMessage;
+		let user = userStore.user;
 		return (
 			<div>
-                <h1>Username: {userStore.user.login}</h1>
-                <p>Avatar: <img src={userStore.user.avatar_url} /></p>
+				{error && <div style={{color: '#f00'}}>{error}</div>}
+				{!error && <div>
+					<h1>Username: {user.login}</h1>
+					<p>Avatar: <img src={user.avatar_url} /></p>
+					</div>
+				}
 			</div>
 		);
 	}
