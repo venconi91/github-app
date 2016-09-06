@@ -6,7 +6,7 @@ import { Provider } from 'mobx-react';
 import getRoutes from './config/routes'
 
 // stores
-import userStore from './stores/UserStore';
+import userStore from './stores/userStore';
 import repositoriesStore from './stores/repositoriesStore';
 
 useStrict(true);
