@@ -1,6 +1,11 @@
 import React from 'react';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
+// stores
+import followersStore from './../stores/followersStore';
+import followingsStore from './../stores/followingsStore';
+import reposStore from './../stores/reposStore';
+
 // pages
 import Search from './../pages/Search';
 import Home from './../pages/Home';
@@ -12,29 +17,51 @@ import Repos from './../pages/Repos';
 import App from './../components/App';
 import NavigationWrapper from './../components/NavigationWrapper';
 
+// api
+import { fetchFollowers, fetchFollowings, fetchRepos } from './../api/user';
+
 const navigationRoutes = [{
     type: IndexRoute,
     component: Search
 }, {
-    type: Route,
     path: '/',
     component: Search
 }, {
-    type: Route,
     path: '/users/:username',
     component: Home
 }, {
-    type: Route,
     path: '/users/:username/followers',
-    component: Followers
+    component: Followers,
+    onEnter: (nextState, replace, callback) => {
+        let username = nextState.params.username;
+        fetchFollowers(username);
+        callback();
+    },
+    onLeave: () => {
+        followersStore.clear();
+    }
 }, {
-    type: Route,
     path: '/users/:username/followings',
-    component: Followings
+    component: Followings,
+    onEnter: (nextState, replace, callback) => {
+        let username = nextState.params.username;
+        fetchFollowings(username);
+        callback();
+    },
+    onLeave: () => {
+        followingsStore.clear();
+    }
 }, {
-    type: Route,
     path: '/users/:username/repos',
-    component: Repos
+    component: Repos,
+    onEnter: (nextState, replace, callback) => {
+        let username = nextState.params.username;
+        fetchRepos(username);
+        callback();
+    },
+    onLeave: () => {
+        reposStore.clear()
+    }
 }]
 
 export default function getRoutes() {
