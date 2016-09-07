@@ -2,6 +2,7 @@ import React from 'react';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 // stores
+import userStore from './../stores/userStore';
 import followersStore from './../stores/followersStore';
 import followingsStore from './../stores/followingsStore';
 import reposStore from './../stores/reposStore';
@@ -18,7 +19,7 @@ import App from './../components/App';
 import NavigationWrapper from './../components/NavigationWrapper';
 
 // api
-import { fetchFollowers, fetchFollowings, fetchRepos } from './../api/user';
+import { fetchUser, fetchFollowers, fetchFollowings, fetchRepos } from './../api/user';
 
 const navigationRoutes = [{
     type: IndexRoute,
@@ -28,7 +29,13 @@ const navigationRoutes = [{
     component: Search
 }, {
     path: '/users/:username',
-    component: Home
+    component: Home,
+    onEnter: (nextState, replace, callback) => {
+        userStore.clear();
+        let username = nextState.params.username;
+        fetchUser(username);
+        callback();
+    }
 }, {
     path: '/users/:username/followers',
     component: Followers,
