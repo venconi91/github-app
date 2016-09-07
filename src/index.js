@@ -3,18 +3,13 @@ import ReactDOM from 'react-dom';
 import { useStrict } from 'mobx';
 import { Provider } from 'mobx-react';
 
+import allStores from './stores';
 import getRoutes from './config/routes'
-
-// stores
-import userStore from './stores/userStore';
-import repositoriesStore from './stores/repositoriesStore';
 
 useStrict(true);
 
-const stores = { userStore, repositoriesStore };
-
 ReactDOM.render(
-  <Provider { ...stores }>
+  <Provider { ...allStores }>
     {getRoutes()}
   </Provider>,
   document.getElementById('app')
