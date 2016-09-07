@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { Row, Col, Card, CardImg, CardBlock, CardTitle } from 'reactstrap';
 
-import UserCard from './../UserCard';
+// import UserCard from './../UserCard';
 
 export default class Follows extends Component {
 	render() {
