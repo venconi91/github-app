@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import { observer } from 'mobx-react';
 import { Link } from 'react-router';
 import { Row, Col, Card, CardImg, CardBlock, CardTitle } from 'reactstrap';
 

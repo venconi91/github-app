@@ -7,7 +7,6 @@ import followersStore from './../../stores/followersStore';
 import Follows from './../../components/Follows';
 
 @observer class Followers extends Component {
-
   render() {
     return <div>
         <Follows users={followersStore.followers} />
