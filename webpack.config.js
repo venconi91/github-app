@@ -12,10 +12,13 @@ module.exports = {
       test: /\.jsx?$/,
       exclude: /node_modules/,
       loader: 'react-hot!babel'
+    }, {
+      test: /\.css$/,
+      loaders: ['style?sourceMap', 'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]']
     }]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx', '.css']
   },
   output: {
     path: __dirname + '/dist',
