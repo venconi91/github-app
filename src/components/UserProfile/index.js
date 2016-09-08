@@ -9,9 +9,11 @@ export default class UserProfile extends Component {
 			<div>
 				{errorMessage && <div style={{color: '#f00'}}>{errorMessage}</div>}
 				{!errorMessage && <div>
-					<h1>Username: {user.login}</h1>
-					<p>Avatar: <img src={user.avatar_url} /></p>
-					</div>
+				    <h1>{user.login}</h1>
+					  <div>
+					    <img src={user.avatar_url} />
+					  </div>
+				  </div>
 				}
 			</div>
 		);
