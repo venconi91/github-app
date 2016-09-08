@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import { Container, Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router';
+import styles from './styles';
 
 import userStore from './../../stores/userStore';
 import { getNavigation } from './config';
@@ -16,8 +17,8 @@ class Navigation extends Component {
           {isUserAvailable ? <NavbarBrand href="/">{userStore.username}</NavbarBrand> : null}
           <Nav className="pull-xs-left" navbar>
             {navigationItems.map((item, i) => {
-              return (isUserAvailable || !isUserAvailable && item.allow) ? <NavItem key={i}>
-              <Link to={item.to}>{item.title}</Link>            
+              return (isUserAvailable || !isUserAvailable && item.allow) ? <NavItem key={i} className={styles.menuItemWrapper}>
+              <Link to={item.to} className={styles.menuItem} activeClassName={styles.activeMenuItem}>{item.title}</Link>            
             </NavItem> : null
             })}
           </Nav>

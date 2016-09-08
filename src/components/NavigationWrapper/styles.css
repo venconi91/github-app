@@ -1,0 +1,7 @@
+.menuItemWrapper {
+    margin-top: 9px;
+}
+
+.activeMenuItem {
+    font-weight: bold;
+}
