@@ -38,12 +38,15 @@
   "dependencies": {
     "axios": "^0.14.0",
     "bootstrap": "^4.0.0-alpha.2",
+    "css-loader": "^0.25.0",
     "mobx": "^2.3.7",
     "mobx-react": "^3.5.1",
     "react": "^15.1.0",
     "react-addons-transition-group": "^15.3.1",
+    "react-css-modules": "^3.7.10",
     "react-dom": "^15.1.0",
     "react-router": "^2.4.1",
-    "reactstrap": "^2.6.1"
+    "reactstrap": "^2.6.1",
+    "style-loader": "^0.13.1"
   }
 }
