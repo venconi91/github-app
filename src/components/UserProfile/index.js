@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { observer } from 'mobx-react';
+import { observer, propTypes } from 'mobx-react';
 
-export default @observer class UserProfile extends Component {
+@observer
+export default class UserProfile extends Component {
 	render() {
 		let {user, errorMessage} = this.props;
 		return (
@@ -15,4 +16,9 @@ export default @observer class UserProfile extends Component {
 			</div>
 		);
 	}
+}
+
+UserProfile.propTypes = {
+	user: propTypes.observableObject,
+	errorMessage: React.PropTypes.string
 }

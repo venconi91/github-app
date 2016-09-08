@@ -14,3 +14,10 @@ export default class Repos extends Component {
 		);
 	}
 }
+
+Repos.propTypes = {
+	data: React.PropTypes.shape({
+      name: React.PropTypes.string,
+	  html_url: React.PropTypes.string
+    }).isRequired
+}

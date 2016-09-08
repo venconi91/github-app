@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { Row, Col, Card, CardImg, CardBlock, CardTitle } from 'reactstrap';
 
+import { propTypes } from 'mobx-react';
+
 // import UserCard from './../UserCard';
 
 export default class Follows extends Component {
@@ -24,4 +26,8 @@ export default class Follows extends Component {
 			</Row>
 		);
 	}
+}
+
+Follows.propTypes = {
+	users: propTypes.observableArray
 }
