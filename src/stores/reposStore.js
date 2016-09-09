@@ -1,4 +1,4 @@
-import { observable, action } from 'mobx';
+import { observable, computed, action } from 'mobx';
 
 class ReposStore{
 
@@ -6,6 +6,10 @@ class ReposStore{
 
     constructor(repos = []) {
         this.repos = repos;
+    }
+
+    @computed get isStoreEmpty() {
+        return this.repos.length > 0;
     }
 
     @action setRepos = (repos = []) => {

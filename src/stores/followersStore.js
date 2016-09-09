@@ -1,4 +1,4 @@
-import { observable, action } from 'mobx';
+import { observable, computed, action } from 'mobx';
 
 class FollowersStore {
 
@@ -6,6 +6,10 @@ class FollowersStore {
 
   constructor(followers = []) {
     this.followers = followers;
+  }
+
+  @computed get isStoreEmpty() {
+    return this.followers.length > 0;
   }
 
   @action setFollowers = (followers) => {

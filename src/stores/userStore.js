@@ -26,6 +26,10 @@ class UserStore {
     return null;
   }
 
+  @computed get isStoreEmpty() {
+    return Object.keys(this.user) > 0;
+  }
+
   @action setUser = (user) => {
     this.user = user;
   }
