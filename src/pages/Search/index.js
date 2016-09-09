@@ -12,7 +12,8 @@ class Home extends Component {
   }
   onSubmit(e) {
       e.preventDefault();
-      this.context.router.push(`users/${this.state.value}`);
+      let username = this.state.value.toLowerCase();
+      this.context.router.push(`users/${username}`);
   }
   render() {
     return <div>
