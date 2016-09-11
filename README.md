@@ -3,7 +3,7 @@ simple app that uses knex and react
 
 ## Install
 
-* clone
+* git clone https://github.com/venconi91/github-app.git
 * npm install
 * npm start
 
