@@ -1,5 +1,5 @@
 # github-app
-simple app that uses knex and react
+simple app that uses mobx and react
 
 ## Install
 
