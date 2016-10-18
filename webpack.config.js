@@ -1,4 +1,14 @@
 var webpack = require('webpack');
+var path = require('path');
+
+var customCssLoader = path.join(__dirname, "./css-custom-loader")
+
+var themeObj = {
+  backgroundColor: '#fafafa',
+  color: 'red'
+}
+
+var query = Object.keys(themeObj).map(k => `${k}=${themeObj[k]}`).join('&');
 
 module.exports = {
   devtool: 'eval-source-map',
@@ -14,7 +24,7 @@ module.exports = {
       loader: 'react-hot!babel'
     }, {
       test: /\.css$/,
-      loaders: ['style?sourceMap', 'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]']
+      loaders: ['style?sourceMap', 'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]', `${customCssLoader}?${query}`, ],
     }]
   },
   resolve: {

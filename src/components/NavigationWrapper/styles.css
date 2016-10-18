@@ -1,5 +1,6 @@
 .menuItemWrapper {
     margin-top: 9px;
+    background-color: ${backgroundColor};
 }
 
 .activeMenuItem {
