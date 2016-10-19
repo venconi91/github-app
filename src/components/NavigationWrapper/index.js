@@ -13,7 +13,7 @@ class Navigation extends Component {
     let isUserAvailable = Object.keys(userStore.user).length > 0;
     let navigationItems = getNavigation(userStore.username);
     return <div>
-        <Navbar color="faded" light>
+        <Navbar color="faded" light className={styles.navbar} >
           {isUserAvailable ? <NavbarBrand href="/">{userStore.username}</NavbarBrand> : null}
           <Nav className="pull-xs-left" navbar>
             {navigationItems.map((item, i) => {

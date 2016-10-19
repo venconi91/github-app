@@ -1,6 +1,9 @@
+.navbar {
+    background-color: ${primaryColor};
+}
+
 .menuItemWrapper {
     margin-top: 9px;
-    background-color: ${backgroundColor};
 }
 
 .activeMenuItem {

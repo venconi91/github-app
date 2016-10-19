@@ -1,7 +1,10 @@
 import React from 'react';
+import style from './style';
 
 function App({ children }) {
-  return <div>{children}</div>;
+  return <div className={style.bodyBackground}>
+    {children}
+  </div>;
 }
 
 App.propTypes = {

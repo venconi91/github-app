@@ -5,7 +5,7 @@ var customCssLoader = path.join(__dirname, "./css-custom-loader")
 
 var themeObj = {
   backgroundColor: '#fafafa',
-  color: 'red'
+  primaryColor: '#aebffc'
 }
 
 var query = Object.keys(themeObj).map(k => `${k}=${themeObj[k]}`).join('&');

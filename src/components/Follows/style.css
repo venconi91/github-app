@@ -1,0 +1,7 @@
+.navigationLink {
+    color: ${primaryColor};
+}
+
+.titleWrapper {
+    background-color: ${backgroundColor};
+}
