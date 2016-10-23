@@ -1,14 +1,11 @@
-var loaderUtils = require("loader-utils");
-
 module.exports = function(source) {
     this.cacheable && this.cacheable();
-    var passedQuery = this.query;
-    var query = loaderUtils.parseQuery(passedQuery);
-    var newSource = source.replace(/\${(.*?)}/g, function(a, b){
-        if (!query[b]) {
-            throw new Error(`Key ${b} doesn't exist in loader passed query(${passedQuery})`)
+    var themeConfig = this.options.themeConfig;
+    var newSource = source.replace(/\${(.*?)}/g, function(a, variableMatch){
+        if (!themeConfig[variableMatch]) {
+            throw new Error(`Key ${variableMatch} doesn't exist in themeConfig in webpack config`)
         }
-        return query[b];
+        return themeConfig[variableMatch];
     })
 	return newSource;
 }
