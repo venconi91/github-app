@@ -1,8 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
 
-var customCssLoader = path.join(__dirname, "./css-custom-loader")
-
 var themeObj = {
   backgroundColor: '#fafafa',
   primaryColor: '#aebffc'
@@ -22,7 +20,7 @@ module.exports = {
       loader: 'react-hot!babel'
     }, {
       test: /\.css$/,
-      loaders: ['style?sourceMap', 'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]', customCssLoader, ],
+      loaders: ['style?sourceMap', 'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]', 'css-theme' ],
     }]
   },
   themeConfig: themeObj,
